@@ -1,0 +1,151 @@
+<!--Header site-->
+<%-include('include/_signHead')%>
+<!--Header site-->
+<!--main site-->
+<a href="/IndexAcc"><i class="fas fa-angle-double-left"></i>All Accounts</a>
+<h2>Edit Account</h2>
+</div>
+<form action="/api/acc/<%=user._id %>" method="PUT" class="form" id="edit_Acc" >
+    <div class="form-control">
+        <label for="username">User name</label>
+        <input type="hidden" name="id" value="<%= user._id %>">
+        <input type="text" name="username" id="username" value="<%= user.username %>" placeholder="full name" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>invalid username!</small>
+    </div>
+    <div class="form-control">
+        <label for="phone">Phone Number</label>
+        <input type="number" name="phone" id="phone" value="<%= user.phone %>" placeholder="phone number" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Enter a valid phone number!</small>
+    </div>
+    <div class="form-control">
+        <label for="email">E-mail</label>
+        <input type="Email" name="email" id="email" value="<%= user.email %>" placeholder="E-mail address" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Enter a valid E-mail Address!</small>
+    </div>
+    
+    <input type="Submit" value="Submit" class="btn">
+</form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    
+        const form=document.getElementById('edit_Acc');
+        const username=document.getElementById('username');
+        const email=document.getElementById('email');
+        const phone=document.getElementById('phone');
+        //add event
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            validate();
+        })
+        const sendData=(sRate,count)=>{
+            if(sRate===count){
+                
+                //--------//
+                $('#edit_Acc').submit(function(event){
+                        event.preventDefault();
+                        var unindexed_array=$(this).serializeArray();
+                        var data={}
+                        $.map(unindexed_array,function(n,i){
+                        data[n['name']]=n['value']
+                    })
+                    console.log(data);
+                    var request={
+                        "url":`http://localhost:3000/api/acc/${data.id}`,
+                        "method":"PUT",
+                        "data":data
+                    }
+                    $.ajax(request).done(function(response){
+                        alert("Data updated successfully.");
+                    })
+                })
+            //---------//
+            }
+        }
+
+//for final data validation
+        const successMsg=()=>{
+            let formCon= document.getElementsByClassName("form-control");
+            var count=formCon.length-1;
+            for(var i=0;i<=count;i++){
+                if(formCon[i].className==="form-control success"){
+                    var sRate=0+i;
+                    console.log(sRate);
+                    sendData(sRate,count);
+
+                }
+                else{
+                    return false
+                }
+            }
+        }
+
+ //more email validate       
+        const isEmail=(emailVal)=>{
+            var atSymbol=emailVal.indexOf("@");
+            if(atSymbol<1) return false;
+            var dot=emailVal.lastIndexOf('.');
+            if(dot<=atSymbol+3) return false;
+            if(dot===emailVal.length-1) return false;
+            return true;           
+        }
+//Define the validate function
+        const validate=()=>{
+        const usernameVal=username.value.trim();
+        const emailVal=email.value.trim();
+        const phoneVal=phone.value.trim();
+// validate Username
+        if(usernameVal===""){
+            setErrorMsg(username,"username can not be blank");
+        }
+        else if(usernameVal.length<=2){
+            setErrorMsg(username,'username min 3 char');
+        }
+        else{
+            setSuccessMsg(username);
+        }
+//Validate Email id
+        if(emailVal===""){
+            setErrorMsg(email,"email can not be blank");
+        }
+        else if(!isEmail(emailVal)){
+            setErrorMsg(email,'not a valid Email');
+        }
+        else{
+            setSuccessMsg(email);
+        }
+//Validate Phone number
+        if(phoneVal===""){
+            setErrorMsg(phone,"phone number can not be blank");
+        }
+        else if(phoneVal.length!=10){
+            setErrorMsg(phone,'not a valid phone number');
+        }
+        else{
+            setSuccessMsg(phone);          
+        }
+        successMsg();
+    }
+    function setErrorMsg(input,errormsgs){
+        const formControl=input.parentElement;
+        const small=formControl.querySelector('small');
+        formControl.className="form-control error";
+        small.innerText=errormsgs;
+    }
+    function setSuccessMsg(input){
+        const formControl=input.parentElement;
+        formControl.className="form-control success";
+    }
+    
+
+</script>
+<!--main site-->
+<!--Include footer-->
+<%-include('include/_footer')%>
+<!--Include footer-->

@@ -1,0 +1,19 @@
+<% for(var i=0;i<users.length;i++){ %>
+<tr>
+    <td><%= users[i].selectAc %></td>
+    <td><%= users[i].TypeT %></td>
+    <td><%= users[i].Amount %></td>
+    <td><%= users[i].Date %></td>
+    <td><%= users[i].Catagory %></td>
+    <td><%= users[i].Descp %></td>
+    
+    <td>
+        <a href="/edit-trans?_id=<%= users[i]._id %>" class="btn border-shadow update">
+            <span class="text-gradient"> <i class="fas fa-pencil-alt"></i> </span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= users[i]._id %>>
+            <span class="text-gradient"> <i class="fas fa-times"></i> </span>   
+        </a>
+    </td>
+</tr>
+<% } %>

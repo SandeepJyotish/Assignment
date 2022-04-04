@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Expense Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/IndexAcc.css">
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">Transactions</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Header-->
+
+    <!--Main site-->
+        <main id="site-main">
+            <div class="container"> 
+                <div class="box-nav d-flex justify-between">
+                    <a href="../views/add_trans.html" class="border-shadow">
+                        <span class="text-gradient"> <i class="fas fa-angle-double-left"></i> Add Transaction</span>
+                    </a>
+                </div>
+                <form action="/" class="form" method="post">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>select Ac.</th>
+                                <th>Type(In/Ex/Tf)</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Catagory</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fd</td>
+                                <td>Expense</td>
+                                <td>12000</td>
+                                <td>22-10-2020</td>
+                                <td>transportation</td>
+                                <td>bike repair</td>
+                                
+                                <td>
+                                    <a href="#" class="btn border-shadow update">
+                                        <span class="text-gradient"> <i class="fas fa-pencil-alt"></i> </span>
+                                    </a>
+                                    <a class="btn border-shadow delete">
+                                        <span class="text-gradient"> <i class="fas fa-times"></i> </span>   
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </main>
+    <!--Main site-->
+</body>
+</html>

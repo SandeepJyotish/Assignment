@@ -1,0 +1,69 @@
+<!--Include header-->
+<%-include('include/_addhead')%>
+<!--Include header-->
+
+
+ <!--Main site-->
+    <main id="site-main">
+        <div class="container">    
+                <a href="/trans"><i class="fas fa-angle-double-left"></i>All Transaction</a>
+            <div class="header">
+                <h2 class="text-dark header">Edit Transaction</h2>
+            </div>
+            <!--Include form-->
+            <form action="/api/trans/<%=used._id %>"  method="PUT" class="form" id="edit_trans">
+                <div class="new_tras">
+                    <div class="form-control">
+                        <label for="select_ac" class="text-light">Select Ac.</label>
+                        <input type="hidden" value="<%= used._id %>">
+                        <select name="selectAc" id="select">
+                            <option value="<%= used.selectAc %>">Saving</option>
+                            <option value="<%= used.selectAc %>">Salary</option>
+                            <option value="<%= used.selectAc %>">FD</option>
+                            <option value="<%= used.selectAc %>">NRI</option>
+                          </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="Type(In/Ex/Tf)" class="text-light">Type(In/Ex/Tf)</label>
+                        <select name="TypeT" id="Type">
+                            <option value="<%= used.TypeT %>">Income</option>
+                            <option value="<%= used.TypeT %>"">Expense</option>
+                            <option value="<%= used.TypeT %>"">Transaction</option>
+                          </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="Amount" class="text-light">Amount</label>
+                        <input type="text" name="Amount" value="<%= used.Amount %>" placeholder="Amount">
+                    </div>
+                    <div class="form-control">
+                        <label for="Date" class="text-light">Date</label>
+                        <input type="date" name="Date" value="<%= used.Date %>" placeholder="01-01-2010">
+                        
+                    </div>
+                    <div class="form-control">
+                        <label for="Catagory" class="text-light">Catagory</label>
+                        <input type="text" name="Catagory" value="<%= used.Catagory %>" placeholder="catagoties">
+                        
+                    </div>
+                    <div class="form-control">
+                        <label for="Description" class="text-light">Description</label>
+                        <input type="text" name="Descp" value="<%= used.Descp %>" placeholder="Descriptions">
+                        
+                    </div>
+            
+                        <div class="form-control">
+                            <input type="submit" value="submit" class="btn">
+                        </div>
+                </div>
+            </form>
+            
+            <!--Include form-->
+        </div>
+    </main>
+<!--Main site-->
+
+<!--Include footer-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/index.js"></script>
+<%-include('include/_addfoot')%>
+<!--Include footer-->

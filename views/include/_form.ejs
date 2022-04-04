@@ -1,0 +1,45 @@
+<form action="/api/trans"  method="POST" class="form" id="add_trans">
+    <div class="new_tras">
+        <div class="form-control">
+            <label for="select_ac" class="text-light">Select Ac.</label>
+            
+            <select name="selectAc" id="select">
+                <option value="Saving">Saving</option>
+                <option value="Salary">Salary</option>
+                <option value="FD">FD</option>
+                <option value="NRI">NRI</option>
+              </select>
+        </div>
+        <div class="form-control">
+            <label for="TypeT" class="text-light">Type(In/Ex/Tf)</label>
+            <select name="TypeT" id="Type">
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+                <option value="Transaction">Transaction</option>
+              </select>
+        </div>
+        <div class="form-control">
+            <label for="Amount" class="text-light">Amount</label>
+            <input type="text" name="Amount" value="" placeholder="Amount">
+        </div>
+        <div class="form-control">
+            <label for="Date" class="text-light">Date</label>
+            <input type="date" name="Date" value="" placeholder="01-01-2010">
+            
+        </div>
+        <div class="form-control">
+            <label for="Catagory" class="text-light">Catagory</label>
+            <input type="text" name="Catagory" value="" placeholder="catagoties">
+            
+        </div>
+        <div class="form-control">
+            <label for="Description" class="text-light">Description</label>
+            <input type="text" name="Descp" value="" placeholder="Descriptions">
+            
+        </div>
+
+            <div class="form-control">
+                <input type="submit" class="btn text-dark update">
+            </div>
+    </div>
+</form>

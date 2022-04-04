@@ -1,0 +1,26 @@
+
+.navbar-brand{
+    padding: 3px;
+    background-color: black;
+    border-radius: 20px;
+    
+}
+h1.maintitle{
+    text-emphasis-style: 4px;
+    text-align: center;
+    margin-top: 20%;
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.signout{
+    position: relative;
+    background-color: transparent;
+    color: white;
+    margin-top: 12px;
+}
+
+body{
+    background-image: url('../img/Blog-11-reasonsfeature-min.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

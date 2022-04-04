@@ -1,0 +1,54 @@
+<!--Header site-->
+<%-include('include/_signHead')%>
+<!--Header site-->
+<!--main site-->
+<a href="/"><i class="fas fa-angle-double-left"></i>home</a>
+<h2>REGISTRATION FORM</h2>
+</div>
+<form action="/api/signup" method="POST" class="form" id="sign_up">
+    <div class="form-control">
+        <label for="username">User name</label>
+        <input type="text" name="username" id="username" placeholder="full name" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>invalid username!</small>
+    </div>
+    <div class="form-control">
+        <label for="email">E-mail</label>
+        <input type="Email" name="email" id="email" placeholder="E-mail address" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Enter a valid E-mail Address!</small>
+    </div>
+    <div class="form-control">
+        <label for="phone">Phone Number</label>
+        <input type="number" name="phone" id="phone" placeholder="phone number" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Enter a valid phone number!</small>
+    </div>
+    <div class="form-control">
+        <label for="password">Password</label>
+        <input type="Password" name="password" id="password" placeholder="password" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>invalid enter!</small>
+    </div>
+    <div class="form-control">
+        <label for="reenter">Re-Password</label>
+        <input type="Password" name="reenter" id="reenter" placeholder="Re-enter password" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Don't Match password!</small>
+    </div>
+    <input type="Submit" value="Submit" class="btn">
+</form>
+</div>
+
+<script  type="text/javascript" src="js/up&in.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--main site-->
+<!--Include footer-->
+<%-include('include/_footer')%>
+<!--Include footer-->

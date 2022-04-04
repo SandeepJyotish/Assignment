@@ -1,0 +1,58 @@
+<!--Header site-->
+<%-include('include/_headAcc')%>
+<!--Header site-->
+<!--Main site-->
+<main id="site-main">
+    <div class="container"> 
+        <div class="box-nav d-flex justify-between">
+            <a href="/addnewAc" class="border-shadow">
+                <span class="text-gradient">Add new AC.<i class="fa-solid fa-user"></i></span>
+            </a>
+        </div>
+        <form action="/" class="form" method="post">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Ac.Holder</th>
+                        <th>Ac.number</th>
+                        <th>E-mail</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0;i<users.length;i++){ %>
+                    <tr>
+                        <td><%= users[i].username %></td>
+                        <td><%= users[i].phone %></td>
+                        <td><%= users[i].email %></td>
+                        <td>
+                            <a href="/add-trans" class="btn border-shadow update">
+                                <span class="text-gradient"> trans. </span>
+                            </a>
+                            <a href="/editnewAc?_id=<%= users[i]._id %>" class="btn border-shadow update">
+                                <span class="text-gradient"> <i class="fas fa-pencil-alt"></i></span>
+                            </a>
+                            <a class="btn border-shadow delete" data-id=<%= users[i]._id %>>
+                                <span class="text-gradient"> <i class="fas fa-times"></i> </span>   
+                            </a>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </form>
+        
+        <div class="box-nav d-flex justify-between">
+            <a href="/signout" class="border-shadow">
+                <span class="text-gradient">Sign out</span>
+            </a>
+        </div>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/x.js"></script>
+<!--Main site-->
+<!--Main site-->
+<!--Include footer-->
+<%-include('include/_footer')%>
+<!--Include footer-->

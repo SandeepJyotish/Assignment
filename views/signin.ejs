@@ -1,0 +1,110 @@
+<!--Header site-->
+<%-include('include/_signHead')%>
+<!--Header site-->
+<!--Main site-->
+<a href="/"><i class="fas fa-angle-double-left"></i>home</a>
+<h2>User Sign In</h2>
+</div>
+<form action="/api/signin" method="POST" class="form" id="sign_in">
+    
+    <div class="form-control">
+        <label for="email">E-mail</label>
+        <input type="Email" name="email" id="email" placeholder="E-mail address" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Enter a valid E-mail Address!</small>
+    </div>
+    <div class="form-control">
+        <label for="password">Password</label>
+        <input type="Password" name="password" id="password" placeholder="password" autocomplete="off">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>invalid enter!</small>
+    
+    <input type="Submit" value="Submit" class="btn">
+</form>
+</div>
+
+<script type="text/javascript">
+const form=document.getElementById('sign_in');
+const email=document.getElementById('email');
+const password=document.getElementById('password');
+//add event
+form.addEventListener.submit(function(event){
+    event.preventDefault();
+    validate();
+})
+const sendData=(sRate,count)=>{
+    if(sRate===count){
+        alert("signin successfull.")
+    }
+}
+
+//for final data validation
+const successMsg=()=>{
+    let formCon= document.getElementsByClassName("form-control");
+    var count=formCon.length-1;
+    for(var i=0;i<=count;i++){
+        if(formCon[i].className==="form-control success"){
+            var sRate=0+i;
+            console.log(sRate);
+            sendData(sRate,count);
+
+        }
+        else{
+            return false
+        }
+    }
+}
+
+//more email validate       
+const isEmail=(emailVal)=>{
+    var atSymbol=emailVal.indexOf("@");
+    if(atSymbol<1) return false;
+    var dot=emailVal.lastIndexOf('.');
+    if(dot<=atSymbol+3) return false;
+    if(dot===emailVal.length-1) return false;
+    return true;           
+}
+//Define the validate function
+const validate=()=>{
+const emailVal=email.value.trim();
+const passwordVal=password.value.trim();
+//Validate Email id
+if(emailVal===""){
+    setErrorMsg(email,"email can not be blank");
+}
+else if(!isEmail(emailVal)){
+    setErrorMsg(email,'not a valid Email');
+}
+else{
+    setSuccessMsg(email);
+}
+
+//Validate password
+if(passwordVal===""){
+    setErrorMsg(password,"password can not be blank");
+}
+else if(passwordVal.length<8){
+    setErrorMsg(password,'The password must be 8 char.');
+}
+else{
+    setSuccessMsg(password);          
+}
+successMsg();
+}
+function setErrorMsg(input,errormsgs){
+const formControl=input.parentElement;
+const small=formControl.querySelector('small');
+formControl.className="form-control error";
+small.innerText=errormsgs;
+}
+function setSuccessMsg(input){
+const formControl=input.parentElement;
+formControl.className="form-control success";
+}
+</script>
+<!--Main site-->
+<!--Include footer-->
+<%-include('include/_footer')%>
+<!--Include footer-->
